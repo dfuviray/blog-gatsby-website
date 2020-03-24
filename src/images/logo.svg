@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="87" height="81" viewBox="0 0 87 81">
+  <defs>
+    <clipPath id="clip-custom_1">
+      <rect width="87" height="81"/>
+    </clipPath>
+  </defs>
+  <g id="custom_1" data-name="custom – 1" clip-path="url(#clip-custom_1)">
+    <rect width="87" height="81" fill="#fff"/>
+    <rect id="Rectangle_6" data-name="Rectangle 6" width="91" height="83.197" transform="translate(0 -2.197)" fill="#2081c3"/>
+    <path id="Path_1" data-name="Path 1" d="M1.518,38V-14.93h18.14q8.979,0,13.669,3.6T38.016-.607a11.43,11.43,0,0,1-1.963,6.544,12.635,12.635,0,0,1-5.744,4.508,11.683,11.683,0,0,1,6.634,4.381,12.758,12.758,0,0,1,2.345,7.725Q39.288,30,34.508,34T20.821,38Zm9.2-23.884V30.657H20.93a9.885,9.885,0,0,0,6.762-2.145,7.528,7.528,0,0,0,2.436-5.962q0-8.252-8.434-8.434Zm0-6.762H19.73A10.426,10.426,0,0,0,26.437,5.41,6.664,6.664,0,0,0,28.855-.1q0-3.926-2.236-5.671T19.658-7.514H10.715Z" transform="translate(23.482 28.93)" fill="#fff"/>
+    <path id="Path_2" data-name="Path 2" d="M0,18.931,26.74,0,19.168,29.343,14.435,18.931Z" transform="translate(60.41 -5.667) rotate(14)" fill="#fff"/>
+  </g>
+</svg>
