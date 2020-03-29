@@ -13,7 +13,7 @@ const Header = ({ siteTitle }) => (
         <img src={logo} />
         <ul>
           <li>
-            <Link to="/blog">Blog</Link>
+            <Link to="/">Blog</Link>
           </li>
         </ul>
       </nav>

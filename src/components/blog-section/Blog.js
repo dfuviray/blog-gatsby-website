@@ -31,7 +31,12 @@ const Blog = () => {
     <BlogWrapper>
       {data.map((post, index) => (
         <div key={index} className="col col-md-8 mx-auto post">
-          <Link to="test">
+          <Link
+            to={`post/${post.node.title
+              .toLowerCase()
+              .split(" ")
+              .join("-")}`}
+          >
             <h3 className="title">{post.node.title}</h3>
           </Link>
           <p className="author">{post.node.author}</p>
