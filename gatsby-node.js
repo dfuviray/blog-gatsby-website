@@ -20,6 +20,11 @@ module.exports.createPages = async ({ actions, graphql }) => {
             content {
               json
             }
+            image {
+              fluid {
+                src
+              }
+            }
           }
         }
       }
@@ -28,7 +33,7 @@ module.exports.createPages = async ({ actions, graphql }) => {
 
   // console.log("=============================")
   // console.log(res.data.allContentfulBlogContent.edges.length)
-  const postPerPage = 2
+  const postPerPage = 3
   const pages = Math.ceil(
     data.allContentfulBlogContent.totalCount / postPerPage
   )

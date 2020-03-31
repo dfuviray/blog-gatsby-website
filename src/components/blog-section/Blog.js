@@ -48,12 +48,6 @@ const Blog = pageContext => {
           <Content
             content={post.node.content.json.content[0].content[0].value || null}
           />
-
-          {/* {post.node.content.json.content.map((content, index) => (
-            <p className="content" key={index}>
-              {content.content[0].value}
-            </p>
-          ))} */}
         </div>
       ))}
     </BlogWrapper>
