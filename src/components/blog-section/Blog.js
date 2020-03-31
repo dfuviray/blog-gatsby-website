@@ -5,30 +5,32 @@ import { BlogWrapper } from "../blog-section/blogWrapper"
 import Content from "./Content"
 import Pagination from "../pagination/Pagination"
 
-const Blog = pageContext => {
+const Blog = () => {
   const {
     allContentfulBlogContent: { edges: data, totalCount },
-  } = useStaticQuery(graphql`
-    query BlogHomepageQuery {
-      allContentfulBlogContent(
-        skip: 0
-        limit: 2
-        sort: { order: DESC, fields: date }
-      ) {
-        totalCount
-        edges {
-          node {
-            author
-            title
-            content {
-              json
+  } = useStaticQuery(
+    graphql`
+      query BlogHomepageQuery {
+        allContentfulBlogContent(
+          skip: 0
+          limit: 3
+          sort: { order: DESC, fields: date }
+        ) {
+          totalCount
+          edges {
+            node {
+              author
+              title
+              content {
+                json
+              }
             }
           }
         }
       }
-    }
-  `)
-  console.log(data)
+    `
+  )
+
   return (
     <BlogWrapper>
       <div className="col col-md-8 mx-auto">

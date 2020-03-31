@@ -1,4 +1,7 @@
 const path = require("path")
+const { GraphQLString } = require("gatsby/graphql")
+
+const postPerPage = 3
 
 module.exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
@@ -33,7 +36,7 @@ module.exports.createPages = async ({ actions, graphql }) => {
 
   // console.log("=============================")
   // console.log(res.data.allContentfulBlogContent.edges.length)
-  const postPerPage = 3
+
   const pages = Math.ceil(
     data.allContentfulBlogContent.totalCount / postPerPage
   )
@@ -64,4 +67,52 @@ module.exports.createPages = async ({ actions, graphql }) => {
       context: post.node,
     })
   )
+}
+
+exports.setFieldsOnGraphQLNodeType = ({ type }) => {
+  if (type.name === `File`) {
+    return {
+      newField: {
+        type: GraphQLString,
+        args: {
+          myArgument: {
+            type: GraphQLString,
+          },
+        },
+        resolve: (source, fieldArgs) => {
+          return `Id of this node is ${source.id}.
+                  Field was called with argument: ${fieldArgs.myArgument}`
+        },
+      },
+    }
+  }
+
+  // by default return empty object
+  return {}
+}
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode } = actions
+
+  // Data can come from anywhere, but for now create it manually
+  const myData = {
+    postPerPage: postPerPage,
+  }
+
+  const nodeContent = JSON.stringify(myData)
+
+  const nodeMeta = {
+    id: createNodeId(`my-data-${myData.key}`),
+    parent: null,
+    children: [],
+    internal: {
+      type: `BlogNodeData`,
+      mediaType: `text/html`,
+      content: nodeContent,
+      contentDigest: createContentDigest(myData),
+    },
+  }
+
+  const node = Object.assign({}, myData, nodeMeta)
+  createNode(node)
 }
