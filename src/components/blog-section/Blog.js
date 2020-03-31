@@ -34,7 +34,7 @@ const Blog = () => {
   return (
     <BlogWrapper>
       <div className="row">
-        <div className="col col-md-8 mx-auto">
+        <div className="col col-md-8 mx-auto post">
           <Pagination totalCount={totalCount} currentPage={1} />
         </div>
         {data.map((post, index) => (
