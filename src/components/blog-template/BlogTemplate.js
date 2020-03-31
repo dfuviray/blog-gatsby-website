@@ -3,13 +3,19 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../layout"
 import Content from "../blog-section/Content"
+import Pagination from "../pagination/Pagination"
 import { BlogWrapper } from "../blog-section/blogWrapper"
 
-const BlogTemplate = ({ data }) => {
-  console.log(data)
+const BlogTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
       <BlogWrapper>
+        <div className="col col-md-8 mx-auto">
+          <Pagination
+            currentPage={pageContext.currentPage}
+            totalPages={pageContext.totalPages}
+          />
+        </div>
         {data.allContentfulBlogContent.edges.map((post, index) => (
           <div key={index} className="col col-md-8 mx-auto post">
             <Link
@@ -46,6 +52,7 @@ export const postQuery = graphql`
       limit: $limit
       sort: { order: DESC, fields: date }
     ) {
+      totalCount
       edges {
         node {
           author

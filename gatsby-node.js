@@ -28,9 +28,9 @@ module.exports.createPages = async ({ actions, graphql }) => {
 
   // console.log("=============================")
   // console.log(res.data.allContentfulBlogContent.edges.length)
-  const postsPerPage = 2
+  const postPerPage = 2
   const pages = Math.ceil(
-    data.allContentfulBlogContent.totalCount / postsPerPage
+    data.allContentfulBlogContent.totalCount / postPerPage
   )
 
   Array.from({ length: pages }).forEach((_, i) => {
@@ -38,8 +38,12 @@ module.exports.createPages = async ({ actions, graphql }) => {
       path: `page/${i + 1}`,
       component: template.blog,
       context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
+        limit: postPerPage,
+        skip: i * postPerPage,
+        currentPage: i + 1,
+        totalCount: data.allContentfulBlogContent.totalCount,
+        postPerPage,
+        totalPages: pages,
       },
     })
   })

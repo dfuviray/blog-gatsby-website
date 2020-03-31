@@ -3,10 +3,11 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 
 import { BlogWrapper } from "../blog-section/blogWrapper"
 import Content from "./Content"
+import Pagination from "../pagination/Pagination"
 
-const Blog = () => {
+const Blog = pageContext => {
   const {
-    allContentfulBlogContent: { edges: data },
+    allContentfulBlogContent: { edges: data, totalCount },
   } = useStaticQuery(graphql`
     query BlogHomepageQuery {
       allContentfulBlogContent(
@@ -14,6 +15,7 @@ const Blog = () => {
         limit: 2
         sort: { order: DESC, fields: date }
       ) {
+        totalCount
         edges {
           node {
             author
@@ -29,6 +31,9 @@ const Blog = () => {
   console.log(data)
   return (
     <BlogWrapper>
+      <div className="col col-md-8 mx-auto">
+        <Pagination totalCount={totalCount} currentPage={1} />
+      </div>
       {data.map((post, index) => (
         <div key={index} className="col col-md-8 mx-auto post">
           <Link
