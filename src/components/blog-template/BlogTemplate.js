@@ -4,12 +4,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../layout"
 import Content from "../blog-section/Content"
 import Pagination from "../pagination/Pagination"
-import { BlogWrapper } from "../blog-section/blogWrapper"
+import { BlogTemplateWrapper } from "./blogTemplateWrapper"
 
 const BlogTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
-      <BlogWrapper>
+      <BlogTemplateWrapper>
         <div className="col col-md-8 mx-auto">
           <Pagination
             currentPage={pageContext.currentPage}
@@ -32,15 +32,9 @@ const BlogTemplate = ({ data, pageContext }) => {
                 post.node.content.json.content[0].content[0].value || null
               }
             />
-
-            {/* {post.node.content.json.content.map((content, index) => (
-            <p className="content" key={index}>
-              {content.content[0].value}
-            </p>
-          ))} */}
           </div>
         ))}
-      </BlogWrapper>
+      </BlogTemplateWrapper>
     </Layout>
   )
 }
