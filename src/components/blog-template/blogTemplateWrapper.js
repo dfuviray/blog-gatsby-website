@@ -1,34 +1,34 @@
 import styled from "styled-components"
 
 export const BlogTemplateWrapper = styled.section`
-  padding-top: 3rem;
+  padding-top: 3rem !important;
 
   .post {
-    margin-bottom: 4rem;
+    margin-bottom: 4rem !important;
   }
 
   a,
   a:link,
   a:visited {
-    color: #011627;
-    transition: color 0.3s ease-in;
+    color: #011627 !important;
+    transition: color 0.3s ease-in !important;
   }
 
   a:hover {
     text-decoration: none !important;
-    color: #2081c3;
+    color: #2081c3 !important;
   }
 
   .author {
-    font-size: 16px;
-    color: #011627;
-    opacity: 65%;
+    font-size: 16px !important;
+    color: #011627 !important;
+    opacity: 65% !important;
   }
 
   .content {
-    opacity: 85%;
-    line-height: 2;
-    margin-bottom: 2.5rem;
-    text-align: justify;
+    opacity: 85% !important;
+    line-height: 2 !important;
+    margin-bottom: 2.5rem !important;
+    text-align: justify !important;
   }
 `
