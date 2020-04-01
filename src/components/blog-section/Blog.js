@@ -4,6 +4,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { BlogWrapper } from "../blog-section/blogWrapper"
 import Content from "./Content"
 import Pagination from "../pagination/Pagination"
+import Layout from "../layout"
 
 const Blog = () => {
   const {
@@ -34,7 +35,7 @@ const Blog = () => {
   return (
     <Layout>
       <BlogWrapper>
-        <div className="col col-md-8 mx-auto post">
+        <div className="col col-md-8 mx-auto">
           <Pagination totalCount={totalCount} currentPage={1} />
         </div>
         {data.map((post, index) => (
