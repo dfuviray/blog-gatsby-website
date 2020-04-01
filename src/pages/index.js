@@ -7,10 +7,10 @@ import Blog from "../components/blog-section/Blog"
 import "bootstrap/dist/css/bootstrap.css"
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <SEO title="Home" />
     <Blog />
-  </Layout>
+  </>
 )
 
 export default IndexPage
