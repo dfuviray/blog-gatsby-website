@@ -7,25 +7,25 @@ export const BlogWrapper = styled.section`
     margin-bottom: 4rem;
   }
 
-  a,
-  a:link,
-  a:visited {
+  .post a,
+  .post a:link,
+  .post a:visited {
     color: #011627;
     transition: color 0.3s ease-in;
   }
 
-  a:hover {
+  .post a:hover {
     text-decoration: none !important;
     color: #2081c3;
   }
 
-  .author {
+  .post .author {
     font-size: 16px;
     color: #011627;
     opacity: 65%;
   }
 
-  .content {
+  .post .content {
     opacity: 85%;
     line-height: 2;
     margin-bottom: 2.5rem;
